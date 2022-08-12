@@ -1,0 +1,33 @@
+package com.Sachin.RecursionPatterns;
+
+import java.util.Arrays;
+
+public class Selection {
+    public static void main(String[] args) {
+        int[] arr = {3, 2, 6, 2, 1, 7};
+        selection(arr, arr.length - 1, 0, 0);
+        System.out.println(Arrays.toString(arr));
+    }
+
+    static void selection(int[] arr, int r, int c, int max) {
+        if ( r == 0 ) {
+            return;
+        }
+        if (c < r ) {
+            if (arr[c] > arr[max]) {
+                selection(arr, r, c + 1, c );
+            }
+            else {
+                selection(arr, r, c + 1, max );
+            }
+        }
+        else {
+            // swap
+            int temp = arr[max];
+            arr[max] = arr[r - 1];
+            arr[r- 1] = temp;
+            selection(arr, r -1, 0, 0);
+        }
+    }
+
+}
