@@ -24,6 +24,7 @@ public class SLL {
         this.size = 0;
     }
 
+//  inserting new node at the last place
     public void insertLast(int item) {
         if (end == null) {
             insertFirst(item);
@@ -35,6 +36,7 @@ public class SLL {
         end = n;
     }
 
+//  inserting new node at the first place
     public void insertFirst(int item) {
         Node n = new Node(item);
         n.next = start;
@@ -46,6 +48,7 @@ public class SLL {
         size += 1;
     }
 
+//  function for displaying the values of the nodes
     public void display() {
         Node temp = start;
         while (temp != null) {
