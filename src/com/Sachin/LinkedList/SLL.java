@@ -24,6 +24,17 @@ public class SLL {
         this.size = 0;
     }
 
+    public void insertLast(int item) {
+        if (end == null) {
+            insertFirst(item);
+            size++;
+        }
+
+        Node n = new Node(item) ;
+        end.next = n;
+        end = n;
+    }
+
     public void insertFirst(int item) {
         Node n = new Node(item);
         n.next = start;
