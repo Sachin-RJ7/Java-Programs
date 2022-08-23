@@ -3,59 +3,140 @@ package com.Sachin.LinkedList;
 public class SLL {
 
     private class Node {
-        private int item;
+        private int value;
         private Node next;
 
-        public Node(int item) {
-            this.item = item;
+        public Node(int value) {
+            this.value = value;
         }
 
-//        public Node(int value, Node next) {
-//            this.value = value;
-//            this.next = next;
-//        }
+        public Node(int value, Node next) {
+            this.value = value;
+            this.next = next;
+        }
     }
 
-    private Node start;
-    private Node end ;
+    private Node head;
+    private Node tail;
     private int size;
 
     public SLL() {
         this.size = 0;
     }
 
-//  inserting new node at the last place
-    public void insertLast(int item) {
-        if (end == null) {
-            insertFirst(item);
-            size++;
-        }
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-        Node n = new Node(item) ;
-        end.next = n;
-        end = n;
-    }
+    public void insertFirst(int val) {
+        Node node = new Node(val);
+        node.next = head;
+        head = node;
 
-//  inserting new node at the first place
-    public void insertFirst(int item) {
-        Node n = new Node(item);
-        n.next = start;
-        start = n;
-
-        if (end == null) {
-            end = start;
+        if (tail == null) {
+            tail = head;
         }
         size += 1;
     }
 
-//  function for displaying the values of the nodes
+    public void insertLast(int val) {
+        if (tail == null) {
+            insertFirst(val);
+            return;
+        }
+        Node node = new Node(val);
+        tail.next = node;
+        tail = node;
+        size++;
+    }
+
+    public void insert(int val, int index) {
+        if (index == 0) {
+            insertFirst(val);
+            return;
+        }
+        if (index == size) {
+            insertLast(val);
+            return;
+        }
+
+        Node temp = head;
+        for (int i = 1; i < index; i++) {
+            temp = temp.next;
+        }
+
+        Node node = new Node(val, temp.next);
+        temp.next = node;
+
+        size++;
+    }
+
+    public int deleteLast() {
+        if (size <= 1) {
+            return deleteFirst();
+        }
+
+        Node secondLast = get(size - 2);
+        int val = tail.value;
+        tail = secondLast;
+        tail.next = null;
+        size--;
+        return val;
+    }
+
+    public int delete(int index) {
+        if (index == 0) {
+            return deleteFirst();
+        }
+        if (index == size - 1) {
+            return deleteLast();
+        }
+
+        Node prev = get(index - 1);
+        int val = prev.next.value;
+
+        prev.next = prev.next.next;
+        size--;
+        return val;
+    }
+
+    public Node find(int value) {
+        Node node = head;
+        while (node != null) {
+            if (node.value == value) {
+                return node;
+            }
+            node = node.next;
+        }
+        return null;
+    }
+
+    public Node get(int index) {
+        Node node = head;
+        for (int i = 0; i < index; i++) {
+            node = node.next;
+        }
+        return node;
+    }
+
+    public int deleteFirst() {
+        int val = head.value;
+        head = head.next;
+        if (head == null) {
+            tail = null;
+        }
+        size--;
+        return val;
+    }
+
     public void display() {
-        Node temp = start;
+        Node temp = head;
         while (temp != null) {
-            System.out.print(temp.item + " -> ");
+            System.out.print(temp.value + " -> ");
             temp = temp.next;
         }
         System.out.println("END");
     }
+
+
+
 
 }
