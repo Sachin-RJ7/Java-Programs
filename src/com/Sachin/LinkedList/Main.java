@@ -16,6 +16,6 @@ public class Main {
         list.display();
         list.insert(10,3);
         list.display();
-        
+
     }
 }
