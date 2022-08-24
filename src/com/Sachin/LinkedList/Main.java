@@ -14,7 +14,7 @@ public class Main {
         list.display();
         list.deleteFirst();
         list.display();
-        list.insert(10,3);
+        list.insert(10,8);
         list.display();
 
     }

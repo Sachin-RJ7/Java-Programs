@@ -49,6 +49,12 @@ public class SLL {
     }
 
     public void insert(int val, int index) {
+
+        if (index < 0 || index > size) {
+            System.out.println("Index is Invalid");
+            return;
+        }
+
         if (index == 0) {
             insertFirst(val);
             return;
