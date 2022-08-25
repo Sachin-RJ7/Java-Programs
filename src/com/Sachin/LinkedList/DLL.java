@@ -34,6 +34,42 @@ public class DLL {
         head = n;
     }
 
+    public void insertLast(int value) {
+        Node node = new Node(value);
+        node.next = null;
+        Node last = head;
+
+        if (head == null) {
+            node.prev = null;
+            head = node;
+//            insertFirst(value);          //   we can try like this also
+            return;
+        }
+
+        while (last.next != null) {
+            last = last.next;
+        }
+
+        last.next = node;
+        node.prev = last;
+    }
+
+    public void displayRev() {
+        System.out.println("Print in reverse");
+        Node n = head;
+        Node last = null;
+        while (n != null) {
+            last = n;
+            n = n.next;
+        }
+
+        while (last != null) {
+            System.out.print(last.value + " -> ");
+            last = last.prev;
+        }
+        System.out.println("START");
+    }
+
     public void display() {
         Node temp = head;
         while (temp != null) {
