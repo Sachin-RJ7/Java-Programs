@@ -13,6 +13,7 @@ public class DLL {
         public Node(int value, Node next, Node prev) {
             this.value = value;
             this.next = next;
+            this.prev = prev;
         }
     }
 
@@ -52,6 +53,35 @@ public class DLL {
 
         last.next = node;
         node.prev = last;
+    }
+
+    public void insert(int after, int value) {
+       Node temp = find(after);
+
+       if (temp == null) {
+           System.out.println("Does not exit");
+           return;
+       }
+
+       Node node = new Node(value);
+       node.next = temp.next;
+       temp.next = node;
+       node.prev = temp;
+       if (node.next != null) {
+           node.next.prev = node;
+       }
+
+    }
+
+    public Node find(int value) {
+        Node node = head;
+        while (node != null) {
+            if (node.value == value) {
+                return node;
+            }
+            node = node.next;
+        }
+        return null;
     }
 
     public void displayRev() {
