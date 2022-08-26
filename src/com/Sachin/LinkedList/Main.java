@@ -24,10 +24,14 @@ public class Main {
         list.insertFirst(3);
         list.insertFirst(4);
         list.insertLast(5);
-        list.insert(6,55);
+        list.insert(4,55);
+        list.display();
+        list.deleteFirst();
+        list.deleteLast();
 
         list.display();
         list.displayRev();
+        System.out.println("size: " + list.showSize());
 
     }
 }

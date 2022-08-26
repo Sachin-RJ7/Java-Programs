@@ -33,6 +33,7 @@ public class DLL {
         n.next = head;
         n.prev = null;
         head = n;
+        size++;
     }
 
     public void insertLast(int value) {
@@ -44,6 +45,7 @@ public class DLL {
             node.prev = null;
             head = node;
 //            insertFirst(value);          //   we can try like this also
+            size++;
             return;
         }
 
@@ -53,6 +55,7 @@ public class DLL {
 
         last.next = node;
         node.prev = last;
+        size++;
     }
 
     public void insert(int after, int value) {
@@ -70,7 +73,39 @@ public class DLL {
        if (node.next != null) {
            node.next.prev = node;
        }
+       size++;
 
+    }
+
+    public void deleteFirst() {
+        if (head.next == null) {
+            head = null;
+            size--;
+            return;
+        }
+        head = head.next;
+        head.prev = null;
+        size--;
+    }
+
+    public void deleteLast() {
+        Node temp = head;
+        if (head == null) {
+            System.out.println("Node is empty");
+            return;
+        } else {
+            Node last = null;
+            while (temp.next != null) {
+                last = temp;
+                temp = temp.next;
+            }
+            if (last == null) {
+                head = null;
+            }else {
+                last.next = null;
+            }
+        }
+        size--;
     }
 
     public Node find(int value) {
@@ -98,6 +133,10 @@ public class DLL {
             last = last.prev;
         }
         System.out.println("START");
+    }
+
+    public int showSize() {
+        return size;
     }
 
     public void display() {
