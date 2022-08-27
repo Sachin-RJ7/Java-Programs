@@ -20,18 +20,28 @@ public class Main {
 //        list.display();
 
 //      Double Linked list
-        DLL list = new DLL();
-        list.insertFirst(3);
-        list.insertFirst(4);
-        list.insertLast(5);
-        list.insert(4,55);
-        list.display();
-        list.deleteFirst();
-        list.deleteLast();
+//        DLL list = new DLL();
+//        list.insertFirst(3);
+//        list.insertFirst(4);
+//        list.insertLast(5);
+//        list.insert(4,55);
+//        list.display();
+//        list.deleteFirst();
+//        list.deleteLast();
+//
+//        list.display();
+//        list.displayRev();
+//        System.out.println("size: " + list.showSize());
+
+        CLL list = new CLL();
+        list.insertLast(33);
+        list.insertLast(45);
+        list.insertFirst(11);
+        list.insertLast(55);
+        list.insert(33,77);
+        list.insertLast(99);
+        list.insertFirst(1);
 
         list.display();
-        list.displayRev();
-        System.out.println("size: " + list.showSize());
-
     }
 }
