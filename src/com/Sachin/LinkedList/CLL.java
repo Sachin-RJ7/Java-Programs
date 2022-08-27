@@ -73,7 +73,6 @@ public class CLL {
         if (head == null) {
             node.next = node;
             head = node;
-//            tail = node;
         }
         else {
             node.next = head;
