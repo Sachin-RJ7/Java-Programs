@@ -41,7 +41,10 @@ public class Main {
         list.insert(33,77);
         list.insertLast(99);
         list.insertFirst(1);
+        list.display();
 
+        System.out.println("After deletion: ");
+        list.delete(77);
         list.display();
     }
 }

@@ -17,6 +17,28 @@ public class CLL {
         this.tail = null;
     }
 
+    public void delete(int value) {
+        Node node  = head;
+        if (node == null) {
+            System.out.println("List is empty --");
+            return;
+        }
+        if (node.item == value) {
+            head = head.next;
+            tail.next = head;
+            return;
+        }
+
+        do {
+            Node n = node.next;
+            if (n.item == value) {
+                node.next = n.next;
+                break;
+            }
+            node = node.next;
+        }while (node != head);
+    }
+
     public void insert(int value, int data) {
         Node node = new Node(data);
         Node temp = tail;
@@ -51,6 +73,7 @@ public class CLL {
         if (head == null) {
             node.next = node;
             head = node;
+//            tail = node;
         }
         else {
             node.next = head;
