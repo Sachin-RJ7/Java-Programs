@@ -159,6 +159,36 @@ public class SLL {
         System.out.println("END");
     }
 
+//    Questions starting from here...
+
+     public void duplicates() {
+        Node node = head;
+
+        while (node.next != null) {
+            if (node.value == node.next.value) {
+                node.next = node.next.next;
+                size--;
+            }
+            else {
+                node = node.next;
+            }
+        }
+        tail = node;
+        tail.next = null;
+    }
+
+    public static void main(String[] args) {
+        SLL list = new SLL();
+        list.insertLast(1);
+        list.insertLast(1);
+        list.insertLast(2);
+        list.insertFirst(1);
+        list.insertLast(4);
+        list.insertLast(4);
+        list.display();
+        list.duplicates();
+        list.display();
+    }
 
 
 
