@@ -177,6 +177,37 @@ public class SLL {
         tail.next = null;
     }
 
+//    merge
+    public static SLL merge (SLL first, SLL second) {
+        Node f = first.head;
+        Node s = second.head;
+
+        SLL ans = new SLL();
+
+        while ( f != null && s != null) {
+            if (f.value < s.value) {
+                ans.insertLast(f.value);
+                f = f.next;
+            }
+            else {
+                ans.insertLast(s.value);
+                s = s.next;
+            }
+        }
+
+        while ( f != null) {
+            ans.insertLast(f.value);
+            f = f.next;
+        }
+
+        while ( s != null) {
+            ans.insertLast(s.value);
+            s = s.next;
+        }
+        return ans;
+    }
+
+
     public static void main(String[] args) {
         SLL list = new SLL();
         list.insertLast(1);
@@ -188,6 +219,22 @@ public class SLL {
         list.display();
         list.duplicates();
         list.display();
+
+//      merge
+        SLL first = new SLL();
+        SLL second = new SLL();
+
+        first.insertLast(1);
+        first.insertLast(3);
+        first.insertLast(5);
+
+        second.insertLast(1);
+        second.insertLast(2);
+        second.insertLast(9);
+        second.insertLast(14);
+
+        SLL ans = SLL.merge(first, second);
+        ans.display();
     }
 
 
