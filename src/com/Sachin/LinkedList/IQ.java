@@ -61,41 +61,30 @@ class IQ {
         return 0;
     }
 
-//  detect from where the cycling is starting
-    public Node detectCycle(Node head) {
-        int length = 0;
-        if (head == null) {
-            return null;
-        }
+    public boolean isHappy ( int n) {
+        int slow = n;
+        int fast = n;
 
-        Node slow = head;
-        Node fast = head;
+        do {
+            slow = findSquare(slow);
+            fast = findSquare(findSquare(fast));
+        } while (slow != fast );
 
-        while (fast != null && fast.next != null) {
-            fast = fast.next.next;
-            slow = slow.next;
-            if (fast == slow) {
-                length = lengthCycle();
-                break;
-            }
+        if (slow == 1)  {
+            return true;
         }
-        // find the start node
-        Node f = head;
-        Node s = head;
-
-        while (length > 0) {
-            s = s.next;
-            length--;
-        }
-        // keep moving both forward and they will meet at cycle start
-        while (f != s) {
-            f = f.next;
-            s = s.next;
-        }
-        return s;
+        return false;
     }
 
-
+    private int findSquare(int number) {
+        int ans = 0;
+        while (number > 0 ) {
+            int rem = number % 10;
+            ans  += rem *rem;
+            number /= 10;
+        }
+        return ans;
+    }
 
 
     public static void main(String[] args) {
@@ -110,8 +99,9 @@ class IQ {
         head.next.next.next.next.next = head.next.next;
 
         System.out.println(list.hasCycle(head));
+        System.out.println("Length of cycle: " + list.lengthCycle());
 
+        System.out.println("isHappy: " + list.isHappy(89));
 
-        System.out.println("length : " + list.detectCycle(head));
     }
 }
