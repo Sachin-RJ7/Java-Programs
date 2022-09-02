@@ -14,6 +14,10 @@ class IQ {
             data = d;
             next = null;
         }
+
+        public int getData() {
+            return data;
+        }
     }
 
     // Function that detects loop in the list
@@ -34,6 +38,8 @@ class IQ {
         }
         return false;
     }
+
+
 
 //  find length of the cycle
     public int lengthCycle() {
@@ -86,6 +92,19 @@ class IQ {
         return ans;
     }
 
+//    find middle value from the list
+    public Node middleNode(Node head) {
+        Node s = head;
+        Node f = head;
+
+        while(f != null && f.next != null) {
+            s = s.next;
+            f = f.next.next;
+        }
+        return s;
+//        System.out.println("Middle Value: " + s.data);
+    }
+
 
     public static void main(String[] args) {
         IQ list = new IQ();
@@ -96,12 +115,14 @@ class IQ {
         head.next.next.next.next = new Node(10);
 
         // Creating a loop for testing
-        head.next.next.next.next.next = head.next.next;
+//        head.next.next.next.next.next = head.next.next;
 
         System.out.println(list.hasCycle(head));
         System.out.println("Length of cycle: " + list.lengthCycle());
 
         System.out.println("isHappy: " + list.isHappy(89));
+
+        System.out.println(list.middleNode(head).getData());;
 
     }
 }
