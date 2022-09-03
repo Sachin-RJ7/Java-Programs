@@ -95,6 +95,7 @@ class MergeSort {
 
         list.printList(list.sortList(head));
 
-
+//        list.reverse(head);
+//        list.printList(head);
     }
 }
