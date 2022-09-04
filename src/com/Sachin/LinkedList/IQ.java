@@ -5,6 +5,7 @@ package com.Sachin.LinkedList;
 class IQ {
 
     static Node head;
+//    static Node prev;
     static class Node {
 
         int data;
@@ -105,6 +106,33 @@ class IQ {
 //        System.out.println("Middle Value: " + s.data);
     }
 
+    public Node reverse(Node head) {
+        if (head == null) {
+            return head;
+        }
+        Node prev = null;
+        Node present = head;
+        Node next = present.next;
+
+        while (present != null) {
+            present.next = prev;
+            prev = present;
+            present = next;
+            if (next != null) {
+                next = next.next;
+            }
+        }
+        return prev;
+
+    }
+
+    public void printList(Node headref) {
+        while (headref != null) {
+            System.out.print(headref.data + " ");
+            headref = headref.next;
+        }
+    }
+
 
     public static void main(String[] args) {
         IQ list = new IQ();
@@ -123,6 +151,13 @@ class IQ {
         System.out.println("isHappy: " + list.isHappy(89));
 
         System.out.println(list.middleNode(head).getData());;
+
+        System.out.println("Given Linked list");
+        list.printList(head);
+        head = list.reverse(head);
+        System.out.println("");
+        System.out.println("Reversed linked list ");
+        list.printList(head);
 
     }
 }
