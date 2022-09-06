@@ -2,7 +2,7 @@ package com.Sachin.Stack;
 
 public class QueueMain {
     public static void main(String[] args) throws Exception {
-        CustomQueue queue = new CustomQueue(6);
+        CustomQueue queue = new CustomQueue(5);
         queue.insert(3);
         queue.insert(4);
         queue.insert(5);

@@ -16,7 +16,7 @@ public class CustomQueue {
     }
 
     public boolean isFull() {
-        return end == data.length - 1; // ptr is at last index
+        return end == data.length ; // ptr is at last index
     }
 
     public boolean isEmpty() {
