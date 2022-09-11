@@ -27,6 +27,11 @@ public class Main {
         System.out.println("Enter 2nd number");
         y = scnr.nextInt();
         System.out.println("Largest Number : " + largestNumber(x, y));
+
+        Scanner in = new Scanner(System.in);
+        System.out.println("Enter the number: ");
+        int value = in.nextInt();
+        System.out.println(value + "th fibonacci number is : " + fibo(value));
     }
 
 

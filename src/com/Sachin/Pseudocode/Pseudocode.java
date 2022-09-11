@@ -21,4 +21,21 @@ public class Pseudocode {
         return Math.max(a,b);
     }
 
+//  find nth fibonacci number
+    public static int fibo(int value) {
+
+        int a = 0;
+        int b = 1;
+        int count = 2;
+
+        while (count <= value) {
+            int temp = b;
+            b = a + b;
+            a = temp;
+            count++;
+        }
+        return b;
+    }
+
+
 }
