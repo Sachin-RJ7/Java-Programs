@@ -17,4 +17,8 @@ public class Pseudocode {
         return gcd( b, a % b );
     }
 
+    static public int largestNumber(int a, int b) {
+        return Math.max(a,b);
+    }
+
 }

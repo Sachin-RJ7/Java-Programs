@@ -2,8 +2,7 @@ package com.Sachin.Pseudocode;
 
 import java.util.Scanner;
 
-import static com.Sachin.Pseudocode.Pseudocode.gcd;
-import static com.Sachin.Pseudocode.Pseudocode.leapYear;
+import static com.Sachin.Pseudocode.Pseudocode.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -20,6 +19,14 @@ public class Main {
         System.out.println("Enter 2nd number");
         b = scn.nextInt();
         System.out.println("gcd = " + gcd(a, b));
+
+        int x, y;
+        Scanner scnr = new Scanner(System.in);
+        System.out.println("Enter Ist number");
+        x = scnr.nextInt();
+        System.out.println("Enter 2nd number");
+        y = scnr.nextInt();
+        System.out.println("Largest Number : " + largestNumber(x, y));
     }
 
 
