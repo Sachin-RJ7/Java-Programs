@@ -1,7 +1,5 @@
 package com.Sachin.Pseudocode;
 
-import static com.Sachin.Math.Prime.isPrime;
-
 public class Prime {
     static public boolean isPrime(int x) {
         if (x <= 1)
