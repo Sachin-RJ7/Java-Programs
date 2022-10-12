@@ -3,7 +3,7 @@ package com.Sachin.Searching;
 public class Ceiling {
     public static void main(String[] args) {
         int[] num = {22, 44, 55, 66, 77, 88, 99, 111, 222};
-        int target = 77;
+        int target = 80;
         int ans = ceiling(num, target);
         System.out.println(ans);
     }
@@ -27,12 +27,10 @@ public class Ceiling {
             if (target < arr[mid]) {
                 end = mid - 1;
             }
-            else if(target > arr[mid]) {
+            if (target > arr[mid]) {
                 start = mid + 1;
             }
-            else {
-                return mid;
-            }
+
         }
         return start;
     }

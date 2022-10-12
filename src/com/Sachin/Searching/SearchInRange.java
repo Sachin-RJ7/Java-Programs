@@ -6,19 +6,7 @@ public class SearchInRange {
         int start = 1;
         int end = 5;
         int target = 66;
-        System.out.println(search(num, target, start, end));
+//        System.out.println(search(num, target, start, end));
     }
 
-    static int search(int[] arr, int target, int start, int range) {
-        if (arr.length == 0) {
-            return -1;
-        }
-
-        for (int i = start; i <=range ; i++) {
-            if(arr[i] == target) {
-                return i;
-            }
-        }
-        return -1;
-    }
 }
